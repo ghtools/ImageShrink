@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Image Compressor Online - Unlimited, No Signup | ImageShrink</title>
+<meta name="description" content="Compress and resize JPG, PNG, and WEBP images for free with no upload limit. Everything runs in your browser, so your photos never leave your device. No signup, no watermark.">
+<meta name="keywords" content="image compressor, compress image online, resize image, reduce image size, compress jpg, compress png, free image compressor">
+<!-- REPLACE https://yourdomain.vercel.app with your real custom domain everywhere in this file -->
+<link rel="canonical" href="https://yourdomain.vercel.app/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#12181f">
+
+<meta property="og:title" content="ImageShrink - Free Image Compressor & Resizer">
+<meta property="og:description" content="Compress and resize images instantly in your browser. Free, unlimited, no signup, no watermark.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.vercel.app/">
+<meta property="og:image" content="https://yourdomain.vercel.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ImageShrink - Free Image Compressor">
+<meta name="twitter:description" content="Compress and resize images instantly in your browser. Free, unlimited, no signup.">
+<meta name="twitter:image" content="https://yourdomain.vercel.app/og-image.jpg">
+
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-180.png">
+<link rel="icon" href="/icons/icon-32.png" sizes="32x32">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "ImageShrink",
+      "url": "https://yourdomain.vercel.app/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourdomain.vercel.app/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://yourdomain.vercel.app/#webpage",
+      "url": "https://yourdomain.vercel.app/",
+      "name": "Free Image Compressor Online - Unlimited, No Signup",
+      "isPartOf": { "@id": "https://yourdomain.vercel.app/" },
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://yourdomain.vercel.app/" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "ImageShrink",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "softwareVersion": "1.0.0",
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free browser-based image compressor and resizer with no upload limits."
+    },
+    {
+      "@type": "Organization",
+      "name": "Finchub Labs",
+      "url": "https://yourdomain.vercel.app/",
+      "logo": "https://yourdomain.vercel.app/icons/icon-512.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is ImageShrink really free with no limits?","acceptedAnswer":{"@type":"Answer","text":"Yes. Compression runs in your browser using your device's own processing power, so there's no server cost that would require a paid plan or daily cap."}},
+        {"@type":"Question","name":"Do my images get uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The image never leaves your device. All resizing and compression happens locally using your browser's canvas engine."}},
+        {"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload JPG, PNG, and WEBP files. The compressed output is saved as a JPG by default for the smallest file size."}},
+        {"@type":"Question","name":"Will compressing reduce image quality noticeably?","acceptedAnswer":{"@type":"Answer","text":"At 70-85% quality, most photos look nearly identical to the original while being significantly smaller. Lower settings trade more size for visible quality loss."}},
+        {"@type":"Question","name":"Can I resize an image without compressing it?","acceptedAnswer":{"@type":"Answer","text":"Yes, set quality to 100% and only change the width or height fields to resize without additional compression."}},
+        {"@type":"Question","name":"What image size is best for WhatsApp or Instagram?","acceptedAnswer":{"@type":"Answer","text":"Under 1MB works well for WhatsApp, and 1080px width is the standard size Instagram uses for feed posts."}},
+        {"@type":"Question","name":"Does this work on mobile phones?","acceptedAnswer":{"@type":"Answer","text":"Yes, the tool is built mobile-first and works in any modern phone browser without needing an app install, though it can also be installed as one."}},
+        {"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No account or signup is required. Open the page and start compressing immediately."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#12181f; --bg-alt:#0c1116;
+    --glass: rgba(255,255,255,0.045); --glass-border: rgba(255,255,255,0.09);
+    --text:#e8ecef; --text-dim:#8b96a3;
+    --amber:#e8a33d; --amber-dim:#a9781f; --mint:#6fe7c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(232,163,61,0.08), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(111,231,196,0.06), transparent),
+      var(--bg);
+    color:var(--text); font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif; min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;}
+  a{color:inherit;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,24,31,0.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--glass-border);
+    padding:14px 20px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:15px;}
+  .brand svg{flex-shrink:0;}
+  #installBtn{
+    display:none;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);
+    padding:8px 14px;border-radius:20px;font-size:13px;cursor:pointer;font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  }
+
+  main{max-width:640px;margin:0 auto;padding:20px 18px 20px;}
+
+  .hero{text-align:center;padding:30px 0 10px;}
+  h1{font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;font-size:clamp(26px,6vw,36px);font-weight:700;line-height:1.15;letter-spacing:-0.01em;}
+  h1 span{color:var(--amber);}
+  .sub{color:var(--text-dim);font-size:15px;max-width:440px;margin:12px auto 0;line-height:1.5;}
+
+  .card{background:var(--glass);border:1px solid var(--glass-border);border-radius:18px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);}
+
+  #dropzone{padding:38px 20px;text-align:center;cursor:pointer;transition:border-color .2s, background .2s,transform .15s;border:1.5px dashed rgba(232,163,61,0.35);margin-top:22px;}
+  #dropzone:active{transform:scale(0.99);}
+  #dropzone.drag{border-color:var(--amber);background:rgba(232,163,61,0.06);}
+  #dropzone svg{width:38px;height:38px;stroke:var(--amber);margin-bottom:12px;animation:float 3s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  #dropzone p{font-weight:500;font-size:15px;margin-bottom:4px;}
+  #dropzone span{color:var(--text-dim);font-size:13px;}
+  #fileInput{display:none;}
+
+  #workspace{display:none;margin-top:18px;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .preview-row{display:flex;gap:14px;padding:16px;flex-wrap:wrap;}
+  .preview-box{flex:1;min-width:130px;text-align:center;}
+  .preview-box img{width:100%;max-height:150px;object-fit:contain;border-radius:10px;background:var(--bg-alt);}
+  .preview-label{font-size:12px;color:var(--text-dim);margin-top:8px;text-transform:uppercase;letter-spacing:0.05em;}
+  .preview-size{font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:16px;font-weight:600;margin-top:2px;}
+  .size-old{color:var(--text-dim);} .size-new{color:var(--mint);}
+
+  .reduction-bar{margin:0 16px 16px;padding:14px 16px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:space-between;}
+  .reduction-bar .pct{font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:22px;font-weight:600;color:var(--amber);}
+  .reduction-bar .pct-label{font-size:12px;color:var(--text-dim);}
+  .track{height:6px;border-radius:4px;background:rgba(255,255,255,0.08);flex:1;margin:0 16px;overflow:hidden;}
+  .track-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--mint));border-radius:4px;transition:width .4s ease;}
+
+  .controls{padding:4px 16px 18px;}
+  .ctrl-row{margin-bottom:16px;}
+  .ctrl-row label{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
+  .ctrl-row label b{color:var(--text);font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;}
+  input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:rgba(255,255,255,0.1);border-radius:4px;outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 0 0 4px rgba(232,163,61,0.15);}
+  .dim-row{display:flex;gap:10px;}
+  .dim-row input[type=number]{flex:1;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text);padding:10px 12px;border-radius:8px;font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:14px;}
+  .dim-row span{align-self:center;color:var(--text-dim);font-size:13px;}
+  .lock-btn{background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:8px;color:var(--text-dim);padding:0 12px;cursor:pointer;font-size:13px;}
+  .lock-btn.active{color:var(--amber);border-color:var(--amber-dim);}
+
+  .actions{display:flex;gap:10px;padding:0 16px 18px;}
+  button.primary{flex:1;background:var(--amber);color:#1a1200;border:none;padding:14px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;transition:transform .15s, background .15s;}
+  button.primary:hover{background:#f0ae4e;} button.primary:active{transform:scale(0.98);}
+  button.ghost{background:transparent;color:var(--text-dim);border:1px solid var(--glass-border);padding:14px 18px;border-radius:12px;cursor:pointer;font-size:14px;font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;}
+
+  .privacy-badge{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;color:var(--text-dim);font-size:12px;}
+  .privacy-badge svg{width:14px;height:14px;stroke:var(--mint);}
+
+  .ad-slot{margin:26px 0;padding:10px;text-align:center;color:var(--text-dim);font-size:11px;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;}
+
+  .features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;}
+  .feature{padding:16px;text-align:left;}
+  .feature .num{font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;color:var(--amber);font-size:13px;}
+  .feature h3{font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;font-size:15px;margin:6px 0 4px;}
+  .feature p{color:var(--text-dim);font-size:13px;line-height:1.5;}
+
+  .content-section{margin-top:40px;padding:0 4px;}
+  .content-section h2{font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;font-size:21px;margin-bottom:10px;margin-top:32px;}
+  .content-section h2:first-child{margin-top:0;}
+  .content-section p{color:var(--text-dim);font-size:14.5px;line-height:1.7;margin-bottom:10px;}
+  .content-section ul{color:var(--text-dim);font-size:14.5px;line-height:1.7;padding-left:20px;margin-bottom:10px;}
+
+  .faq-item{border-bottom:1px solid var(--glass-border);padding:14px 0;}
+  .faq-item summary{font-weight:500;font-size:14.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+';color:var(--amber);font-size:18px;}
+  .faq-item[open] summary::after{content:'−';}
+  .faq-item p{color:var(--text-dim);font-size:14px;margin-top:10px;line-height:1.6;}
+
+  footer{text-align:center;padding:34px 20px 40px;color:var(--text-dim);font-size:12.5px;line-height:1.8;}
+  footer .brand-line{color:var(--text);font-weight:500;font-size:13.5px;}
+
+  @media(max-width:480px){
+    .features{grid-template-columns:1fr;}
+    .reduction-bar{flex-direction:column;gap:10px;align-items:stretch;}
+    .track{margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 48 48" width="24" height="24" fill="none" aria-hidden="true">
+      <rect width="48" height="48" rx="11" fill="#12181f"/>
+      <path d="M13 13h7M13 13v7M13 13l7 7" stroke="#e8a33d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M35 35h-7M35 35v-7M35 35l-7-7" stroke="#e8a33d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    ImageShrink
+  </div>
+  <button id="installBtn">Install app</button>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Compress images <span>without losing quality</span></h1>
+    <p class="sub">Free, unlimited, and it never leaves your device — compression runs entirely in your browser.</p>
+  </div>
+
+  <div class="card" id="dropzone">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Tap to upload, or drop an image here</p>
+    <span>JPG, PNG, WEBP · No file size limit</span>
+  </div>
+  <input type="file" id="fileInput" accept="image/*">
+
+  <div class="card" id="workspace">
+    <div class="preview-row">
+      <div class="preview-box">
+        <img id="beforeImg" alt="Original uploaded image preview" loading="lazy" decoding="async">
+        <div class="preview-label">Original</div>
+        <div class="preview-size size-old mono" id="beforeSize">—</div>
+      </div>
+      <div class="preview-box">
+        <img id="afterImg" alt="Compressed image preview" loading="lazy" decoding="async">
+        <div class="preview-label">Compressed</div>
+        <div class="preview-size size-new mono" id="afterSize">—</div>
+      </div>
+    </div>
+
+    <div class="reduction-bar">
+      <div><div class="pct mono" id="pctReduced">0%</div><div class="pct-label">smaller</div></div>
+      <div class="track"><div class="track-fill" id="trackFill" style="width:0%"></div></div>
+    </div>
+
+    <div class="controls">
+      <div class="ctrl-row">
+        <label>Quality <b id="qualityVal">80%</b></label>
+        <input type="range" id="qualitySlider" min="10" max="100" value="80" aria-label="Compression quality">
+      </div>
+      <div class="ctrl-row">
+        <label>Dimensions (px)</label>
+        <div class="dim-row">
+          <input type="number" id="widthInput" placeholder="Width" aria-label="Width in pixels">
+          <span>×</span>
+          <input type="number" id="heightInput" placeholder="Height" aria-label="Height in pixels">
+          <button class="lock-btn active" id="lockRatio" title="Lock aspect ratio" aria-label="Toggle aspect ratio lock">🔗</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="ghost" id="resetBtn">Reset</button>
+      <button class="primary" id="downloadBtn">Download compressed image</button>
+    </div>
+  </div>
+
+  <div class="privacy-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Processed locally — nothing is uploaded
+  </div>
+
+  <div class="card" id="iosInstallBanner" style="display:none;margin-top:16px;padding:14px 16px;font-size:13px;color:var(--text-dim);">
+    Install this app: tap <b style="color:var(--text)">Share</b> then <b style="color:var(--text)">Add to Home Screen</b>.
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <div class="features">
+    <div class="feature"><div class="num">01</div><h3>Runs in your browser</h3><p>Nothing uploads to a server, so your images stay private and there's no limit on how many you compress.</p></div>
+    <div class="feature"><div class="num">02</div><h3>Resize freely</h3><p>Set exact pixel dimensions alongside compression, with aspect ratio locked by default.</p></div>
+    <div class="feature"><div class="num">03</div><h3>No signup</h3><p>Open the page and start. No account, no email, no watermark on your output.</p></div>
+    <div class="feature"><div class="num">04</div><h3>Installable</h3><p>Add it to your home screen and it opens like a native app, even offline.</p></div>
+  </div>
+
+  <div class="ad-slot">Advertisement</div>
+
+  <section class="content-section">
+    <h2>How image compression works</h2>
+    <p>Every photo is made of pixels, and each pixel stores color data. Compression looks for patterns and redundancy in that data and rewrites it more efficiently. JPG compression is "lossy," meaning it discards some detail the human eye barely notices, which is why you can shrink a photo by 70-80% and still have it look nearly identical at normal viewing size.</p>
+    <p>This tool draws your image onto an HTML canvas at your chosen dimensions, then re-encodes it as a JPG at the quality level you pick. That whole process happens using your phone or computer's own processor, not a remote server, which is why there's no upload step and no limit on how many images you can process.</p>
+
+    <h2>JPG vs PNG vs WEBP</h2>
+    <p>JPG is best for photos, where small color shifts are invisible but file size matters. PNG preserves every pixel exactly and supports transparency, which makes it the right choice for logos, screenshots, and graphics with sharp edges or text. WEBP tries to give you the best of both, often producing smaller files than JPG at similar quality, though it's slightly less universally supported by older software.</p>
+
+    <h2>Picking the right quality setting</h2>
+    <ul>
+      <li><b>90-100%:</b> Near-lossless, for print or archival storage.</li>
+      <li><b>70-85%:</b> The sweet spot for websites and social media — small file, no visible difference.</li>
+      <li><b>40-60%:</b> Noticeably smaller, some softness in fine detail, fine for thumbnails.</li>
+      <li><b>Below 40%:</b> Visible artifacts, only for cases where size matters more than appearance.</li>
+    </ul>
+
+    <h2>Common use cases</h2>
+    <p>Students compress scanned assignments to fit college portal upload limits. Online sellers resize product photos so listings load faster on Shopify or Instagram. Developers optimize images before deploying a website, since large images are one of the most common causes of slow page load and poor Core Web Vitals scores. Anyone sending photos over WhatsApp or email can shrink them to avoid hitting attachment size limits.</p>
+
+    <h2>Privacy and security</h2>
+    <p>Because compression happens on-device, your photos are never transmitted anywhere. There's no server-side copy, no upload log, and no way for this site to see the images you process. This also means the tool keeps working even if you lose your internet connection partway through, and it stays fast regardless of how many people are using it at once.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently asked questions</h2>
+    <details class="faq-item"><summary>Is ImageShrink really free with no limits?</summary><p>Yes. Compression runs in your browser using your device's own processing power, so there's no server cost that would require a paid plan or daily cap.</p></details>
+    <details class="faq-item"><summary>Do my images get uploaded to a server?</summary><p>No. The image never leaves your device. All resizing and compression happens locally using your browser's canvas engine.</p></details>
+    <details class="faq-item"><summary>Which image formats are supported?</summary><p>You can upload JPG, PNG, and WEBP files. The compressed output is saved as a JPG by default for the smallest file size.</p></details>
+    <details class="faq-item"><summary>Will compressing reduce image quality noticeably?</summary><p>At 70-85% quality, most photos look nearly identical to the original while being significantly smaller. Lower settings trade more size for visible quality loss.</p></details>
+    <details class="faq-item"><summary>Can I resize an image without compressing it?</summary><p>Yes, set quality to 100% and only change the width or height fields to resize without additional compression.</p></details>
+    <details class="faq-item"><summary>What image size is best for WhatsApp or Instagram?</summary><p>Under 1MB works well for WhatsApp, and 1080px width is the standard size Instagram uses for feed posts.</p></details>
+    <details class="faq-item"><summary>Does this work on mobile phones?</summary><p>Yes, the tool is built mobile-first and works in any modern phone browser without needing an app install, though it can also be installed as one.</p></details>
+    <details class="faq-item"><summary>Do I need to create an account?</summary><p>No account or signup is required. Open the page and start compressing immediately.</p></details>
+  </section>
+
+  <div class="ad-slot">Advertisement</div>
+</main>
+
+<footer>
+  <div class="brand-line">Crafted with ❤️ by GH Jamali</div>
+  <div>Powered by Finchub Labs</div>
+  <div>Privacy First • No Uploads • Unlimited Free Use</div>
+  <div>© 2026 ImageShrink. All rights reserved.</div>
+</footer>
+
+<script>
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const workspace = document.getElementById('workspace');
+  const beforeImg = document.getElementById('beforeImg');
+  const afterImg = document.getElementById('afterImg');
+  const beforeSize = document.getElementById('beforeSize');
+  const afterSize = document.getElementById('afterSize');
+  const pctReduced = document.getElementById('pctReduced');
+  const trackFill = document.getElementById('trackFill');
+  const qualitySlider = document.getElementById('qualitySlider');
+  const qualityVal = document.getElementById('qualityVal');
+  const widthInput = document.getElementById('widthInput');
+  const heightInput = document.getElementById('heightInput');
+  const lockRatio = document.getElementById('lockRatio');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const installBtn = document.getElementById('installBtn');
+
+  let originalImage = null, originalFile = null, originalW = 0, originalH = 0;
+  let aspectLocked = true, compressedBlob = null;
+
+  function fmtSize(bytes){
+    if(bytes < 1024) return bytes + ' B';
+    if(bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+    return (bytes/1024/1024).toFixed(2) + ' MB';
+  }
+
+  function handleFile(file){
+    if(!file || !file.type.startsWith('image/')) return;
+    originalFile = file;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        originalImage = img; originalW = img.width; originalH = img.height;
+        beforeImg.src = e.target.result;
+        widthInput.value = originalW; heightInput.value = originalH;
+        beforeSize.textContent = fmtSize(file.size);
+        workspace.style.display = 'block';
+        dropzone.style.display = 'none';
+        compress();
+        workspace.scrollIntoView({behavior:'smooth', block:'start'});
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function compress(){
+    if(!originalImage) return;
+    const w = parseInt(widthInput.value) || originalW;
+    const h = parseInt(heightInput.value) || originalH;
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(originalImage, 0, 0, w, h);
+    const quality = parseInt(qualitySlider.value) / 100;
+    canvas.toBlob(blob => {
+      compressedBlob = blob;
+      afterImg.src = URL.createObjectURL(blob);
+      afterSize.textContent = fmtSize(blob.size);
+      const reduction = Math.max(0, Math.round((1 - blob.size / originalFile.size) * 100));
+      pctReduced.textContent = reduction + '%';
+      trackFill.style.width = reduction + '%';
+    }, 'image/jpeg', quality);
+  }
+
+  dropzone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+  ['dragover','dragenter'].forEach(evt => dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.add('drag'); }));
+  ['dragleave','drop'].forEach(evt => dropzone.addEventListener(evt, e => { e.preventDefault(); dropzone.classList.remove('drag'); }));
+  dropzone.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
+
+  qualitySlider.addEventListener('input', () => { qualityVal.textContent = qualitySlider.value + '%'; compress(); });
+  widthInput.addEventListener('input', () => {
+    if(aspectLocked && originalW) heightInput.value = Math.round(parseInt(widthInput.value || originalW) * originalH / originalW);
+    compress();
+  });
+  heightInput.addEventListener('input', () => {
+    if(aspectLocked && originalH) widthInput.value = Math.round(parseInt(heightInput.value || originalH) * originalW / originalH);
+    compress();
+  });
+  lockRatio.addEventListener('click', () => { aspectLocked = !aspectLocked; lockRatio.classList.toggle('active', aspectLocked); });
+
+  downloadBtn.addEventListener('click', () => {
+    if(!compressedBlob) return;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(compressedBlob);
+    a.download = originalFile.name.replace(/\.[^/.]+$/, '') + '-compressed.jpg';
+    a.click();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    workspace.style.display = 'none'; dropzone.style.display = 'block';
+    fileInput.value = ''; originalImage = null; compressedBlob = null;
+  });
+
+  // PWA: service worker + install prompt
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+  }
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); deferredPrompt = e;
+    installBtn.style.display = 'inline-block';
+  });
+  installBtn.addEventListener('click', async () => {
+    if(!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBtn.style.display = 'none';
+  });
+
+  // iOS Safari doesn't fire beforeinstallprompt, so show manual instructions instead
+  const isIOS = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  if(isIOS && !isStandalone){
+    document.getElementById('iosInstallBanner').style.display = 'block';
+  }
+</script>
+</body>
+</html>
