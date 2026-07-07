@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Free Image Compressor Online - Unlimited, No Signup | ImageShrink</title>
-<meta name="description" content="Compress and resize JPG, PNG, and WEBP images for free with no upload limit. Everything runs in your browser, so your photos never leave your device. No signup, no watermark.">
-<meta name="keywords" content="image compressor, compress image online, resize image, reduce image size, compress jpg, compress png, free image compressor">
+<meta name="description" content="Compress and resize JPG, PNG, and WEBP images for free with no upload limit. Convert compressed images to PDF instantly. Everything runs in your browser, so your photos never leave your device. No signup, no watermark.">
+<meta name="keywords" content="image compressor, compress image online, resize image, reduce image size, compress jpg, compress png, free image compressor, image to pdf converter, convert image to pdf online, jpg to pdf, rotate image online, flip image online">
 <!-- REPLACE https://imageshrink.vercel.app with your real custom domain everywhere in this file -->
 <link rel="canonical" href="https://imageshrink.vercel.app/">
 <meta name="robots" content="index, follow">
@@ -72,7 +72,8 @@
       "@type": "Organization",
       "name": "Finchub Labs",
       "url": "https://imageshrink.vercel.app/",
-      "logo": "https://imageshrink.vercel.app/icons/icon-512.png"
+      "logo": "https://imageshrink.vercel.app/icons/icon-512.png",
+      "sameAs": ["https://tiksnaptok.vercel.app", "https://finchub.vercel.app"]
     },
     {
       "@type": "FAQPage",
@@ -80,6 +81,7 @@
         {"@type":"Question","name":"Is ImageShrink really free with no limits?","acceptedAnswer":{"@type":"Answer","text":"Yes. Compression runs in your browser using your device's own processing power, so there's no server cost that would require a paid plan or daily cap."}},
         {"@type":"Question","name":"Do my images get uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The image never leaves your device. All resizing and compression happens locally using your browser's canvas engine."}},
         {"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload JPG, PNG, or WEBP files, and choose which of those three formats to save the compressed output in."}},
+        {"@type":"Question","name":"Can I convert my image to a PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes, a Convert to PDF button wraps the compressed image into a single-page PDF, generated locally in your browser without any upload."}},
         {"@type":"Question","name":"Will compressing reduce image quality noticeably?","acceptedAnswer":{"@type":"Answer","text":"At 70-85% quality, most photos look nearly identical to the original while being significantly smaller. Lower settings trade more size for visible quality loss."}},
         {"@type":"Question","name":"Can I resize an image without compressing it?","acceptedAnswer":{"@type":"Answer","text":"Yes, set quality to 100% and only change the width or height fields to resize without additional compression."}},
         {"@type":"Question","name":"What image size is best for WhatsApp or Instagram?","acceptedAnswer":{"@type":"Answer","text":"Under 1MB works well for WhatsApp, and 1080px width is the standard size Instagram uses for feed posts."}},
@@ -122,6 +124,19 @@
     display:none;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);
     padding:8px 14px;border-radius:20px;font-size:13px;cursor:pointer;font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
   }
+  .tools-menu{position:relative;}
+  #moreToolsBtn{
+    background:transparent;border:1px solid var(--glass-border);color:var(--text-dim);
+    padding:8px 12px;border-radius:20px;font-size:12.5px;cursor:pointer;font-family:'Inter',ui-sans-serif,sans-serif;
+  }
+  .tools-dropdown{
+    display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:210px;
+    background:#161d26;border:1px solid var(--glass-border);border-radius:12px;padding:6px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4);z-index:60;
+  }
+  .tools-dropdown.open{display:block;}
+  .tools-dropdown a{display:block;padding:10px 12px;border-radius:8px;color:var(--text);text-decoration:none;font-size:13.5px;}
+  .tools-dropdown a:hover{background:rgba(255,255,255,0.06);}
 
   main{max-width:640px;margin:0 auto;padding:20px 18px 20px;}
 
@@ -180,6 +195,12 @@
   button.primary{flex:1;background:var(--amber);color:#1a1200;border:none;padding:14px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;transition:transform .15s, background .15s;}
   button.primary:hover{background:#f0ae4e;} button.primary:active{transform:scale(0.98);}
   button.ghost{background:transparent;color:var(--text-dim);border:1px solid var(--glass-border);padding:14px 18px;border-radius:12px;cursor:pointer;font-size:14px;font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;}
+  button.secondary{
+    width:calc(100% - 32px);margin:0 16px 18px;background:rgba(232,163,61,0.1);color:var(--amber);
+    border:1.5px solid var(--amber-dim);padding:13px;border-radius:12px;font-weight:600;font-size:14px;
+    cursor:pointer;font-family:'Space Grotesk',ui-sans-serif,-apple-system,'Segoe UI',sans-serif;transition:background .15s;
+  }
+  button.secondary:hover{background:rgba(232,163,61,0.18);}
 
   .privacy-badge{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;color:var(--text-dim);font-size:12px;}
   .privacy-badge svg{width:14px;height:14px;stroke:var(--mint);}
@@ -205,10 +226,29 @@
   .faq-item[open] summary::after{content:'−';}
   .faq-item p{color:var(--text-dim);font-size:14px;margin-top:10px;line-height:1.6;}
 
+  .ecosystem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .eco-card{
+    background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;padding:18px 16px;
+    text-align:left;transition:transform .2s,border-color .2s;
+  }
+  .eco-card:hover{transform:translateY(-3px);border-color:var(--amber-dim);}
+  .eco-icon{font-size:24px;margin-bottom:8px;}
+  .eco-card h3{font-family:'Space Grotesk',ui-sans-serif,sans-serif;font-size:15px;margin-bottom:6px;}
+  .eco-card p{color:var(--text-dim);font-size:12.5px;line-height:1.5;margin-bottom:12px;}
+  .eco-cta{
+    display:inline-block;font-size:12.5px;font-weight:600;color:var(--amber);text-decoration:none;
+  }
+  .eco-cta.current{color:var(--text-dim);}
+
   footer{text-align:center;padding:34px 20px 40px;color:var(--text-dim);font-size:12.5px;line-height:1.8;}
   footer .brand-line{color:var(--text);font-weight:500;font-size:13.5px;}
+  footer .footer-links{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;}
+  footer .footer-links a{color:var(--text-dim);text-decoration:none;font-size:12px;}
+  footer .footer-links a:hover{color:var(--amber);}
+  footer a{color:var(--amber);text-decoration:none;}
 
   @media(max-width:480px){
+    .ecosystem-grid{grid-template-columns:1fr;}
     .features{grid-template-columns:1fr;}
     .reduction-bar{flex-direction:column;gap:10px;align-items:stretch;}
     .track{margin:0;}
@@ -226,7 +266,16 @@
     </svg>
     ImageShrink
   </div>
-  <button id="installBtn">Install app</button>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="tools-menu">
+      <button id="moreToolsBtn" aria-haspopup="true" aria-expanded="false">More Tools ▾</button>
+      <div class="tools-dropdown" id="toolsDropdown">
+        <a href="https://tiksnaptok.vercel.app" target="_blank" rel="noopener">TikSnapTok — TikTok Downloader</a>
+        <a href="https://finchub.vercel.app" target="_blank" rel="noopener">Finchub — All Free Tools</a>
+      </div>
+    </div>
+    <button id="installBtn">Install app</button>
+  </div>
 </header>
 
 <main>
@@ -284,15 +333,22 @@
           <button class="lock-btn active" id="lockRatio" title="Lock aspect ratio" aria-label="Toggle aspect ratio lock">🔗</button>
         </div>
       </div>
+      <div class="ctrl-row">
+        <label>Rotate &amp; flip</label>
+        <div class="format-row">
+          <button class="format-btn" id="rotateLeftBtn" title="Rotate left 90°" aria-label="Rotate left">⟲</button>
+          <button class="format-btn" id="rotateRightBtn" title="Rotate right 90°" aria-label="Rotate right">⟳</button>
+          <button class="format-btn" id="flipHBtn" title="Flip horizontal" aria-label="Flip horizontal">⇋</button>
+          <button class="format-btn" id="flipVBtn" title="Flip vertical" aria-label="Flip vertical">⇵</button>
+        </div>
+      </div>
     </div>
 
     <div class="actions">
       <button class="ghost" id="resetBtn">Reset</button>
-      <button class="primary" id="downloadBtn">Download compressed image</button>
+      <button class="primary" id="downloadBtn">Download image</button>
     </div>
-    <div class="actions">
-      <button class="ghost" id="pdfBtn" style="flex:1;">Convert to PDF</button>
-    </div>
+    <button class="secondary" id="pdfBtn">📄 Convert to PDF</button>
   </div>
 
   <div class="privacy-badge">
@@ -334,6 +390,9 @@
     <h2>Common use cases</h2>
     <p>Students compress scanned assignments to fit college portal upload limits. Online sellers resize product photos so listings load faster on Shopify or Instagram. Developers optimize images before deploying a website, since large images are one of the most common causes of slow page load and poor Core Web Vitals scores. Anyone sending photos over WhatsApp or email can shrink them to avoid hitting attachment size limits.</p>
 
+    <h2>Turning an image into a PDF</h2>
+    <p>Sometimes a form or application only accepts a PDF, even though what you have is a photo of a document or a scanned page. Once your image is compressed here, the Convert to PDF button wraps it into a single-page PDF sized to match the image's own dimensions, so there's no separate upload step or another tool to open. This is handled by a small library that runs in your browser, so it's just as private as the compression itself.</p>
+
     <h2>Privacy and security</h2>
     <p>Because compression happens on-device, your photos are never transmitted anywhere. There's no server-side copy, no upload log, and no way for this site to see the images you process. This also means the tool keeps working even if you lose your internet connection partway through, and it stays fast regardless of how many people are using it at once.</p>
   </section>
@@ -351,6 +410,31 @@
     <details class="faq-item"><summary>Do I need to create an account?</summary><p>No account or signup is required. Open the page and start compressing immediately.</p></details>
   </section>
 
+  <section class="content-section" style="margin-top:36px;">
+    <h2>More free tools</h2>
+    <p style="margin-bottom:16px;">ImageShrink is part of the Finchub free tools ecosystem — no signup, no watermark, on any of them.</p>
+    <div class="ecosystem-grid">
+      <div class="eco-card">
+        <div class="eco-icon">🖼️</div>
+        <h3>ImageShrink</h3>
+        <p>Compress, resize, and convert images instantly with no upload limits. You're using it right now.</p>
+        <span class="eco-cta current">You're here</span>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon">🎵</div>
+        <h3>TikSnapTok</h3>
+        <p>Download TikTok videos without watermark in HD, MP4, MP3, or as a photo slideshow.</p>
+        <a class="eco-cta" href="https://tiksnaptok.vercel.app" target="_blank" rel="noopener">Open tool →</a>
+      </div>
+      <div class="eco-card">
+        <div class="eco-icon">🧰</div>
+        <h3>Finchub</h3>
+        <p>A hub of free calculators and utilities — financial tools, converters, and more.</p>
+        <a class="eco-cta" href="https://finchub.vercel.app" target="_blank" rel="noopener">Open tool →</a>
+      </div>
+    </div>
+  </section>
+
   <div class="ad-slot">Advertisement</div>
 </main>
 
@@ -358,7 +442,20 @@
   <div class="brand-line">Crafted with ❤️ by GH Jamali</div>
   <div>Powered by Finchub Labs</div>
   <div>Privacy First • No Uploads • Unlimited Free Use</div>
-  <div>© 2026 ImageShrink. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/disclaimer.html">Disclaimer</a>
+    <a href="/dmca.html">DMCA</a>
+    <a href="/sitemap.xml">Sitemap</a>
+  </div>
+  <div style="margin-top:10px;">Part of the Finchub Free Tools Ecosystem —
+    <a href="https://tiksnaptok.vercel.app" target="_blank" rel="noopener">TikSnapTok</a> ·
+    <a href="https://finchub.vercel.app" target="_blank" rel="noopener">Finchub</a>
+  </div>
+  <div style="margin-top:10px;">© 2026 ImageShrink. All rights reserved.</div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -385,6 +482,7 @@
   const pdfBtn = document.getElementById('pdfBtn');
 
   let selectedFormat = 'jpeg', selectedExt = 'jpg';
+  let rotation = 0, flipH = false, flipV = false;
 
   let originalImage = null, originalFile = null, originalW = 0, originalH = 0;
   let aspectLocked = true, compressedBlob = null;
@@ -420,15 +518,23 @@
     if(!originalImage) return;
     const w = parseInt(widthInput.value) || originalW;
     const h = parseInt(heightInput.value) || originalH;
+    const rotated90 = rotation === 90 || rotation === 270;
+    const canvasW = rotated90 ? h : w;
+    const canvasH = rotated90 ? w : h;
     const canvas = document.createElement('canvas');
-    canvas.width = w; canvas.height = h;
+    canvas.width = canvasW; canvas.height = canvasH;
     const ctx = canvas.getContext('2d');
     // JPG has no alpha channel, so transparent areas would otherwise render black
     if(selectedFormat === 'jpeg'){
       ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, w, h);
+      ctx.fillRect(0, 0, canvasW, canvasH);
     }
-    ctx.drawImage(originalImage, 0, 0, w, h);
+    ctx.save();
+    ctx.translate(canvasW / 2, canvasH / 2);
+    ctx.rotate(rotation * Math.PI / 180);
+    ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+    ctx.drawImage(originalImage, -w / 2, -h / 2, w, h);
+    ctx.restore();
     const quality = parseInt(qualitySlider.value) / 100;
     const mime = 'image/' + selectedFormat;
 
@@ -477,6 +583,11 @@
   });
   lockRatio.addEventListener('click', () => { aspectLocked = !aspectLocked; lockRatio.classList.toggle('active', aspectLocked); });
 
+  document.getElementById('rotateLeftBtn').addEventListener('click', () => { rotation = (rotation + 270) % 360; compress(); });
+  document.getElementById('rotateRightBtn').addEventListener('click', () => { rotation = (rotation + 90) % 360; compress(); });
+  document.getElementById('flipHBtn').addEventListener('click', (e) => { flipH = !flipH; e.currentTarget.classList.toggle('active', flipH); compress(); });
+  document.getElementById('flipVBtn').addEventListener('click', (e) => { flipV = !flipV; e.currentTarget.classList.toggle('active', flipV); compress(); });
+
   downloadBtn.addEventListener('click', () => {
     if(!compressedBlob) return;
     const a = document.createElement('a');
@@ -509,6 +620,9 @@
     fileInput.value = ''; originalImage = null; compressedBlob = null;
     selectedFormat = 'jpeg'; selectedExt = 'jpg'; qualitySlider.disabled = false; qualityNote.textContent = '';
     formatBtns.forEach(b => b.classList.toggle('active', b.dataset.format === 'jpeg'));
+    rotation = 0; flipH = false; flipV = false;
+    document.getElementById('flipHBtn').classList.remove('active');
+    document.getElementById('flipVBtn').classList.remove('active');
   });
 
   // PWA: service worker + install prompt
@@ -527,6 +641,15 @@
     deferredPrompt = null;
     installBtn.style.display = 'none';
   });
+
+  const moreToolsBtn = document.getElementById('moreToolsBtn');
+  const toolsDropdown = document.getElementById('toolsDropdown');
+  moreToolsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = toolsDropdown.classList.toggle('open');
+    moreToolsBtn.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', () => toolsDropdown.classList.remove('open'));
 
   // iOS Safari doesn't fire beforeinstallprompt, so show manual instructions instead
   const isIOS = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
