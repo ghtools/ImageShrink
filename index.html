@@ -6,22 +6,22 @@
 <title>Free Image Compressor Online - Unlimited, No Signup | ImageShrink</title>
 <meta name="description" content="Compress and resize JPG, PNG, and WEBP images for free with no upload limit. Everything runs in your browser, so your photos never leave your device. No signup, no watermark.">
 <meta name="keywords" content="image compressor, compress image online, resize image, reduce image size, compress jpg, compress png, free image compressor">
-<!-- REPLACE https://yourdomain.vercel.app with your real custom domain everywhere in this file -->
-<link rel="canonical" href="https://yourdomain.vercel.app/">
+<!-- REPLACE https://imageshrink.vercel.app with your real custom domain everywhere in this file -->
+<link rel="canonical" href="https://imageshrink.vercel.app/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#12181f">
 
 <meta property="og:title" content="ImageShrink - Free Image Compressor & Resizer">
 <meta property="og:description" content="Compress and resize images instantly in your browser. Free, unlimited, no signup, no watermark.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://yourdomain.vercel.app/">
-<meta property="og:image" content="https://yourdomain.vercel.app/og-image.jpg">
+<meta property="og:url" content="https://imageshrink.vercel.app/">
+<meta property="og:image" content="https://imageshrink.vercel.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ImageShrink - Free Image Compressor">
 <meta name="twitter:description" content="Compress and resize images instantly in your browser. Free, unlimited, no signup.">
-<meta name="twitter:image" content="https://yourdomain.vercel.app/og-image.jpg">
+<meta name="twitter:image" content="https://imageshrink.vercel.app/og-image.jpg">
 
 <link rel="manifest" href="/manifest.json">
 <link rel="apple-touch-icon" href="/icons/icon-180.png">
@@ -34,27 +34,27 @@
     {
       "@type": "WebSite",
       "name": "ImageShrink",
-      "url": "https://yourdomain.vercel.app/",
+      "url": "https://imageshrink.vercel.app/",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://yourdomain.vercel.app/?q={search_term_string}",
+        "target": "https://imageshrink.vercel.app/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://yourdomain.vercel.app/#webpage",
-      "url": "https://yourdomain.vercel.app/",
+      "@id": "https://imageshrink.vercel.app/#webpage",
+      "url": "https://imageshrink.vercel.app/",
       "name": "Free Image Compressor Online - Unlimited, No Signup",
-      "isPartOf": { "@id": "https://yourdomain.vercel.app/" },
+      "isPartOf": { "@id": "https://imageshrink.vercel.app/" },
       "datePublished": "2026-07-07",
       "dateModified": "2026-07-07"
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yourdomain.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://yourdomain.vercel.app/" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://imageshrink.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://imageshrink.vercel.app/" }
       ]
     },
     {
@@ -71,15 +71,15 @@
     {
       "@type": "Organization",
       "name": "Finchub Labs",
-      "url": "https://yourdomain.vercel.app/",
-      "logo": "https://yourdomain.vercel.app/icons/icon-512.png"
+      "url": "https://imageshrink.vercel.app/",
+      "logo": "https://imageshrink.vercel.app/icons/icon-512.png"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {"@type":"Question","name":"Is ImageShrink really free with no limits?","acceptedAnswer":{"@type":"Answer","text":"Yes. Compression runs in your browser using your device's own processing power, so there's no server cost that would require a paid plan or daily cap."}},
         {"@type":"Question","name":"Do my images get uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The image never leaves your device. All resizing and compression happens locally using your browser's canvas engine."}},
-        {"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload JPG, PNG, and WEBP files. The compressed output is saved as a JPG by default for the smallest file size."}},
+        {"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can upload JPG, PNG, or WEBP files, and choose which of those three formats to save the compressed output in."}},
         {"@type":"Question","name":"Will compressing reduce image quality noticeably?","acceptedAnswer":{"@type":"Answer","text":"At 70-85% quality, most photos look nearly identical to the original while being significantly smaller. Lower settings trade more size for visible quality loss."}},
         {"@type":"Question","name":"Can I resize an image without compressing it?","acceptedAnswer":{"@type":"Answer","text":"Yes, set quality to 100% and only change the width or height fields to resize without additional compression."}},
         {"@type":"Question","name":"What image size is best for WhatsApp or Instagram?","acceptedAnswer":{"@type":"Answer","text":"Under 1MB works well for WhatsApp, and 1080px width is the standard size Instagram uses for feed posts."}},
@@ -160,6 +160,14 @@
   .ctrl-row{margin-bottom:16px;}
   .ctrl-row label{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
   .ctrl-row label b{color:var(--text);font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;}
+  .format-row{display:flex;gap:8px;}
+  .format-btn{
+    flex:1;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text-dim);
+    padding:10px 0;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+    font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;transition:all .15s;
+  }
+  .format-btn.active{color:#1a1200;background:var(--amber);border-color:var(--amber);}
+  .quality-note{font-size:12px;color:var(--text-dim);margin-top:6px;min-height:14px;}
   input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:rgba(255,255,255,0.1);border-radius:4px;outline:none;}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 0 0 4px rgba(232,163,61,0.15);}
   .dim-row{display:flex;gap:10px;}
@@ -255,8 +263,17 @@
 
     <div class="controls">
       <div class="ctrl-row">
+        <label>Output format</label>
+        <div class="format-row">
+          <button class="format-btn active" data-format="jpeg" data-ext="jpg">JPG</button>
+          <button class="format-btn" data-format="png" data-ext="png">PNG</button>
+          <button class="format-btn" data-format="webp" data-ext="webp">WEBP</button>
+        </div>
+      </div>
+      <div class="ctrl-row">
         <label>Quality <b id="qualityVal">80%</b></label>
         <input type="range" id="qualitySlider" min="10" max="100" value="80" aria-label="Compression quality">
+        <div class="quality-note" id="qualityNote"></div>
       </div>
       <div class="ctrl-row">
         <label>Dimensions (px)</label>
@@ -272,6 +289,9 @@
     <div class="actions">
       <button class="ghost" id="resetBtn">Reset</button>
       <button class="primary" id="downloadBtn">Download compressed image</button>
+    </div>
+    <div class="actions">
+      <button class="ghost" id="pdfBtn" style="flex:1;">Convert to PDF</button>
     </div>
   </div>
 
@@ -322,7 +342,8 @@
     <h2>Frequently asked questions</h2>
     <details class="faq-item"><summary>Is ImageShrink really free with no limits?</summary><p>Yes. Compression runs in your browser using your device's own processing power, so there's no server cost that would require a paid plan or daily cap.</p></details>
     <details class="faq-item"><summary>Do my images get uploaded to a server?</summary><p>No. The image never leaves your device. All resizing and compression happens locally using your browser's canvas engine.</p></details>
-    <details class="faq-item"><summary>Which image formats are supported?</summary><p>You can upload JPG, PNG, and WEBP files. The compressed output is saved as a JPG by default for the smallest file size.</p></details>
+    <details class="faq-item"><summary>Which image formats are supported?</summary><p>You can upload JPG, PNG, or WEBP files, and choose which of those three formats to save the compressed output in.</p></details>
+    <details class="faq-item"><summary>Can I convert my image to a PDF?</summary><p>Yes, after compressing there's a "Convert to PDF" button that wraps the compressed image into a single-page PDF, still generated locally in your browser.</p></details>
     <details class="faq-item"><summary>Will compressing reduce image quality noticeably?</summary><p>At 70-85% quality, most photos look nearly identical to the original while being significantly smaller. Lower settings trade more size for visible quality loss.</p></details>
     <details class="faq-item"><summary>Can I resize an image without compressing it?</summary><p>Yes, set quality to 100% and only change the width or height fields to resize without additional compression.</p></details>
     <details class="faq-item"><summary>What image size is best for WhatsApp or Instagram?</summary><p>Under 1MB works well for WhatsApp, and 1080px width is the standard size Instagram uses for feed posts.</p></details>
@@ -340,6 +361,7 @@
   <div>© 2026 ImageShrink. All rights reserved.</div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   const dropzone = document.getElementById('dropzone');
   const fileInput = document.getElementById('fileInput');
@@ -358,6 +380,11 @@
   const downloadBtn = document.getElementById('downloadBtn');
   const resetBtn = document.getElementById('resetBtn');
   const installBtn = document.getElementById('installBtn');
+  const formatBtns = document.querySelectorAll('.format-btn');
+  const qualityNote = document.getElementById('qualityNote');
+  const pdfBtn = document.getElementById('pdfBtn');
+
+  let selectedFormat = 'jpeg', selectedExt = 'jpg';
 
   let originalImage = null, originalFile = null, originalW = 0, originalH = 0;
   let aspectLocked = true, compressedBlob = null;
@@ -396,8 +423,23 @@
     const canvas = document.createElement('canvas');
     canvas.width = w; canvas.height = h;
     const ctx = canvas.getContext('2d');
+    // JPG has no alpha channel, so transparent areas would otherwise render black
+    if(selectedFormat === 'jpeg'){
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+    }
     ctx.drawImage(originalImage, 0, 0, w, h);
     const quality = parseInt(qualitySlider.value) / 100;
+    const mime = 'image/' + selectedFormat;
+
+    if(selectedFormat === 'png'){
+      qualitySlider.disabled = true;
+      qualityNote.textContent = 'PNG is lossless — quality slider has no effect here.';
+    } else {
+      qualitySlider.disabled = false;
+      qualityNote.textContent = '';
+    }
+
     canvas.toBlob(blob => {
       compressedBlob = blob;
       afterImg.src = URL.createObjectURL(blob);
@@ -405,8 +447,18 @@
       const reduction = Math.max(0, Math.round((1 - blob.size / originalFile.size) * 100));
       pctReduced.textContent = reduction + '%';
       trackFill.style.width = reduction + '%';
-    }, 'image/jpeg', quality);
+    }, mime, quality);
   }
+
+  formatBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      formatBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedFormat = btn.dataset.format;
+      selectedExt = btn.dataset.ext;
+      compress();
+    });
+  });
 
   dropzone.addEventListener('click', () => fileInput.click());
   fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
@@ -429,13 +481,34 @@
     if(!compressedBlob) return;
     const a = document.createElement('a');
     a.href = URL.createObjectURL(compressedBlob);
-    a.download = originalFile.name.replace(/\.[^/.]+$/, '') + '-compressed.jpg';
+    a.download = originalFile.name.replace(/\.[^/.]+$/, '') + '-compressed.' + selectedExt;
     a.click();
+  });
+
+  pdfBtn.addEventListener('click', () => {
+    if(!compressedBlob) return;
+    pdfBtn.textContent = 'Preparing PDF...';
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const { jsPDF } = window.jspdf;
+        const orientation = img.width > img.height ? 'l' : 'p';
+        const pdf = new jsPDF({ orientation, unit: 'px', format: [img.width, img.height] });
+        pdf.addImage(reader.result, selectedFormat === 'png' ? 'PNG' : 'JPEG', 0, 0, img.width, img.height);
+        pdf.save(originalFile.name.replace(/\.[^/.]+$/, '') + '.pdf');
+        pdfBtn.textContent = 'Convert to PDF';
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(compressedBlob);
   });
 
   resetBtn.addEventListener('click', () => {
     workspace.style.display = 'none'; dropzone.style.display = 'block';
     fileInput.value = ''; originalImage = null; compressedBlob = null;
+    selectedFormat = 'jpeg'; selectedExt = 'jpg'; qualitySlider.disabled = false; qualityNote.textContent = '';
+    formatBtns.forEach(b => b.classList.toggle('active', b.dataset.format === 'jpeg'));
   });
 
   // PWA: service worker + install prompt
