@@ -1,0 +1,30 @@
+/* ImageShrink - shared stylesheet for legal & informational pages
+   (privacy, terms, disclaimer, contact, dmca, about) */
+:root{
+  --bg:#12181f;
+  --glass:rgba(255,255,255,0.045);
+  --glass-border:rgba(255,255,255,0.09);
+  --text:#e8ecef;
+  --text-dim:#8b96a3;
+  --amber:#e8a33d;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;width:100%;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:ui-sans-serif,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+  width:100%;
+}
+header{padding:18px 20px;border-bottom:1px solid var(--glass-border);}
+a.back{color:var(--amber);text-decoration:none;font-size:14px;font-weight:600;}
+main{max-width:640px;margin:0 auto;padding:30px 20px 60px;}
+h1{font-family:'Space Grotesk',ui-sans-serif,sans-serif;font-size:26px;margin-bottom:6px;}
+.updated{color:var(--text-dim);font-size:13px;margin-bottom:26px;}
+h2{font-size:17px;margin:24px 0 8px;font-family:'Space Grotesk',ui-sans-serif,sans-serif;}
+p,li{color:var(--text-dim);font-size:14.5px;margin-bottom:10px;}
+ul{padding-left:20px;}
+main a{color:var(--amber);text-decoration:none;}
+footer{text-align:center;padding:24px;color:var(--text-dim);font-size:12.5px;}
