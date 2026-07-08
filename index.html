@@ -101,13 +101,14 @@
     --amber:#e8a33d; --amber-dim:#a9781f; --mint:#6fe7c4;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;width:100%;}
   body{
     background:
       radial-gradient(ellipse 900px 500px at 15% -10%, rgba(232,163,61,0.08), transparent),
       radial-gradient(ellipse 700px 500px at 100% 20%, rgba(111,231,196,0.06), transparent),
       var(--bg);
     color:var(--text); font-family:'Inter',ui-sans-serif,-apple-system,'Segoe UI',sans-serif; min-height:100vh; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden; width:100%;
   }
   .mono{font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;}
   a{color:inherit;}
@@ -175,9 +176,9 @@
   .ctrl-row{margin-bottom:16px;}
   .ctrl-row label{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);margin-bottom:8px;}
   .ctrl-row label b{color:var(--text);font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;}
-  .format-row{display:flex;gap:8px;}
+  .format-row{display:flex;gap:6px;}
   .format-btn{
-    flex:1;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text-dim);
+    flex:1;min-width:0;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text-dim);
     padding:10px 0;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
     font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;transition:all .15s;
   }
@@ -186,7 +187,7 @@
   input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:rgba(255,255,255,0.1);border-radius:4px;outline:none;}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--amber);cursor:pointer;box-shadow:0 0 0 4px rgba(232,163,61,0.15);}
   .dim-row{display:flex;gap:10px;}
-  .dim-row input[type=number]{flex:1;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text);padding:10px 12px;border-radius:8px;font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:14px;}
+  .dim-row input[type=number]{flex:1;min-width:0;background:var(--bg-alt);border:1px solid var(--glass-border);color:var(--text);padding:10px 12px;border-radius:8px;font-family:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',monospace;font-size:14px;}
   .dim-row span{align-self:center;color:var(--text-dim);font-size:13px;}
   .lock-btn{background:var(--bg-alt);border:1px solid var(--glass-border);border-radius:8px;color:var(--text-dim);padding:0 12px;cursor:pointer;font-size:13px;}
   .lock-btn.active{color:var(--amber);border-color:var(--amber-dim);}
@@ -205,7 +206,8 @@
   .privacy-badge{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;color:var(--text-dim);font-size:12px;}
   .privacy-badge svg{width:14px;height:14px;stroke:var(--mint);}
 
-  .ad-slot{margin:26px 0;padding:10px;text-align:center;color:var(--text-dim);font-size:11px;border:1px dashed rgba(255,255,255,0.08);border-radius:10px;}
+  .ad-slot{margin:26px auto;padding:0;text-align:center;display:flex;justify-content:center;align-items:center;overflow:hidden;min-height:10px;}
+  .ad-slot iframe{max-width:100%;}
 
   .features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;}
   .feature{padding:16px;text-align:left;}
@@ -360,7 +362,12 @@
     Install this app: tap <b style="color:var(--text)">Share</b> then <b style="color:var(--text)">Add to Home Screen</b>.
   </div>
 
-  <div class="ad-slot">Advertisement</div>
+  <div class="ad-slot ad-banner-320">
+    <script>
+      atOptions = { 'key' : 'd2e61a1557316f9596780e9d1b32b183', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+    </script>
+    <script src="https://www.highperformanceformat.com/d2e61a1557316f9596780e9d1b32b183/invoke.js"></script>
+  </div>
 
   <div class="features">
     <div class="feature"><div class="num">01</div><h3>Runs in your browser</h3><p>Nothing uploads to a server, so your images stay private and there's no limit on how many you compress.</p></div>
@@ -369,7 +376,12 @@
     <div class="feature"><div class="num">04</div><h3>Installable</h3><p>Add it to your home screen and it opens like a native app, even offline.</p></div>
   </div>
 
-  <div class="ad-slot">Advertisement</div>
+  <div class="ad-slot ad-rect-300">
+    <script>
+      atOptions = { 'key' : '4c084fc99ad1e23110d87fa87b322984', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+    </script>
+    <script src="https://www.highperformanceformat.com/4c084fc99ad1e23110d87fa87b322984/invoke.js"></script>
+  </div>
 
   <section class="content-section">
     <h2>How image compression works</h2>
@@ -435,7 +447,12 @@
     </div>
   </section>
 
-  <div class="ad-slot">Advertisement</div>
+  <div class="ad-slot ad-sky-160">
+    <script>
+      atOptions = { 'key' : '74381815660c333c483f87eda384af32', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+    </script>
+    <script src="https://www.highperformanceformat.com/74381815660c333c483f87eda384af32/invoke.js"></script>
+  </div>
 </main>
 
 <footer>
